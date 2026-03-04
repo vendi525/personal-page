@@ -70,11 +70,6 @@ function App() {
                 className="w-full h-full object-cover grayscale"
               />
             </div>
-            <div className="border-2 border-black px-6 py-4 text-center bg-white">
-              <a href="mailto:iza.vene4@gmail.com" className="text-sm font-bold hover:underline">
-                iza.vene4@gmail.com
-              </a>
-            </div>
           </div>
         </div>
       </section>
