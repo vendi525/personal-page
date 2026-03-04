@@ -22,25 +22,27 @@ function App() {
       
       {/* DYNAMIC NAVIGATION */}
       <nav className={`
-        fixed z-50 transition-all duration-500 ease-in-out flex
+        fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out flex items-center justify-between px-10 
         ${isSticky 
-          ? 'top-0 left-0 w-full bg-[#E8E6E1]/90 backdrop-blur-md border-b border-black px-10 py-5 flex-row justify-between items-center' 
-          : 'bottom-8 left-8 flex-col items-start gap-3'}
+          ? 'bg-[#E8E6E1]/90 backdrop-blur-md border-b border-black py-4' // STICKY STYLE (Scrolled)
+          : 'bg-transparent py-8'                                        // DEFAULT STYLE (Top of page)
+        }
       `}>
         
-        {/* LOGO - Only visible when sticky */}
-        <div className={`transition-opacity duration-500 ${isSticky ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
+        {/* LOGO: Now always visible */}
+        <div className="transition-all duration-300">
           <span className="text-xl font-bold font-serif lowercase">iza vene</span>
         </div>
 
-        {/* NAV LINKS */}
-        <div className={`flex gap-3 text-sm font-medium uppercase tracking-widest ${isSticky ? 'flex-row gap-8' : 'flex-col'}`}>
+        {/* NAV LINKS: Now always horizontal (flex-row) */}
+        <div className="flex flex-row gap-8 text-sm font-medium uppercase tracking-widest">
           <a href="#about-me" className="hover:text-orange-600 transition-all">about</a>
           <a href="#work" className="hover:text-orange-600 transition-all">work</a>
           <a href="#experience" className="hover:text-orange-600 transition-all">experience</a>
           <a href="#philosophy" className="hover:text-orange-600 transition-all">philosophy</a>
         </div>
       </nav>
+      {/* --- END OF CHANGES --- */}
 
       {/* FLOATING EMAIL BUTTON - Fades out when nav becomes sticky for a cleaner look */}
       <div className={`fixed bottom-8 right-8 z-50 transition-opacity duration-500 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
