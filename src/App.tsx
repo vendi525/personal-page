@@ -4,16 +4,17 @@ import { useState, useEffect } from 'react'; // Added these for the scroll logic
 function App() {
   const [isSticky, setIsSticky] = useState(false);
 
-  // This logic tracks how far you have scrolled
   useEffect(() => {
     const handleScroll = () => {
+      // Use 200px so you are clearly away from the top before it jumps
       if (window.scrollY > 200) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    // 'passive' tells the browser to prioritize scrolling over the JS logic
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
